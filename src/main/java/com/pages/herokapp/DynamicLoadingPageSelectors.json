@@ -1,0 +1,11 @@
+{
+  "links": {
+    "exampleOneLinkTextElement": "Example 1: Element on page that is hidden"
+  },
+  "buttons": {
+    "start": "div#start > button"
+  },
+  "pageText": {
+    "exampleOneFinish_HelloWord": "div#finish > h4"
+  }
+}

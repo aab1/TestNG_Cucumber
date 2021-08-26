@@ -16,8 +16,9 @@ import io.cucumber.testng.CucumberOptions;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "timeline:test-output-thread/",
                 "rerun:target/rerunfailedtest.txt"//failed tests will be added to the file at this location
-        //,tags = "@accounts"
-        }
+        },
+        monochrome = true,
+        tags = "@dynamicLoading"
 
 )
 public class ParallelRun extends AbstractTestNGCucumberTests {
