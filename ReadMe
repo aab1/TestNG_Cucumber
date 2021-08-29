@@ -1,0 +1,47 @@
+You can run this using "mvn verify" from the terminal
+A base page class can extend the Element util class so it can be used on every page 
+each page will be expected to extend the base page class.
+
+Assertions should be done in the test classes i.e the step definitions.
+You can also create Test class so the step definitions can extend it.
+
+=======================================================================================
+plugin for junit parallel run
+<!--For Junit parallel run -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+
+                            <!--UNCOMMENT - To add any exclusions if required-->
+                            <!--<excludes><exclude>**/*IT*.java</exclude></excludes> -->
+
+                            <includes>
+                                <!--UNCOMMENT BELOW LINE - To execute feature files with a single runner -->
+                               <!-- <include>**/MyTestRunner.java</include>-->
+                                <!--UNCOMMENT BELOW LINE - To execute feature files with multiple runners -->
+                                <!-- <include>**/*Runner.java</include> -->
+                            </includes>
+                            <!--UNCOMMENT BELOW 3 LINES - To execute using parallel or combination
+                            option -->
+                             <parallel>methods</parallel>
+                            <threadCount>4</threadCount>
+                            <perCoreThreadCount>true</perCoreThreadCount>
+                            <!-- UNCOMMENT BELOW 3 LINES - To execute using forking or combination option -->
+                           <!--  <forkCount>2</forkCount>  <reuseForks>true</reuseForks>
+                            <reportsDirectory>${project.build.directory}/failsafe-reports_${surefire.forkNumber}
+                            </reportsDirectory> -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+=======================================================================================
+add "rerun:target/rerunfailedtest.txt" to the runner class to create a text file for failed TCs
+you can refer to this video to learn more: https://www.youtube.com/watch?v=3BBxrDblEWc&list=PLFGoYjJG_fqo1gsSFl5WInw_fPkk_MQu7&index=8&t=18s

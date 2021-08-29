@@ -1,0 +1,4 @@
+Parallel\LoginPageSteps.class
+Parallel\ParallelRun.class
+Parallel\ApplicationHooks.class
+Parallel\AccountsPageSteps.class
